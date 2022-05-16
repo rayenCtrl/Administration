@@ -29,7 +29,10 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> b1df5718425850745aed9e1ea1b365f7e9b3764f
 =======
 >>>>>>> b1df5718425850745aed9e1ea1b365f7e9b3764f
         jLabel5 = new javax.swing.JLabel();
@@ -54,7 +57,11 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
         EmailInput = new javax.swing.JFormattedTextField();
         validationBtn = new javax.swing.JButton();
 <<<<<<< HEAD
+<<<<<<< HEAD
         SearchInput = new PlaceholderTextField();
+=======
+        SearchInput = new javax.swing.JFormattedTextField();
+>>>>>>> b1df5718425850745aed9e1ea1b365f7e9b3764f
 =======
         SearchInput = new javax.swing.JFormattedTextField();
 >>>>>>> b1df5718425850745aed9e1ea1b365f7e9b3764f
@@ -127,11 +134,18 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 <<<<<<< HEAD
+<<<<<<< HEAD
         jLabel10.setText("ID Élément:");
 
         IDinput.setForeground(new java.awt.Color(153, 153, 153));
         // IDinput.setText("taper ID de l'element");
         IDinput.setPlaceholder("taper ID de l'élément");
+=======
+        jLabel10.setText("ID Elément:");
+
+        IDinput.setForeground(new java.awt.Color(153, 153, 153));
+        IDinput.setText("taper ID de l'element");
+>>>>>>> b1df5718425850745aed9e1ea1b365f7e9b3764f
 =======
         jLabel10.setText("ID Elément:");
 
@@ -208,6 +222,7 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
 
         searchTable.setModel(new javax.swing.table.DefaultTableModel(
 <<<<<<< HEAD
+<<<<<<< HEAD
                 new Object[][] {
                         { new Integer(21167), "Rio", "Hunter", "r.hun21167@pi.tn", new Integer(124578963),
                                 new Integer(22159487) },
@@ -230,6 +245,8 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
             public Class getColumnClass(int columnIndex) {
                 return types[columnIndex];
 =======
+=======
+>>>>>>> b1df5718425850745aed9e1ea1b365f7e9b3764f
             new Object [][] {
                 { new Integer(21167), "Rio", "Hunter", "r.hun21167@pi.tn",  new Integer(124578963),  new Integer(22159487)},
                 { new Integer(19019), "Khalilo", "Kremlin", "k.k19019@pi.tn",  new Integer(123456789),  new Integer(55136879)},
@@ -249,6 +266,9 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+<<<<<<< HEAD
+>>>>>>> b1df5718425850745aed9e1ea1b365f7e9b3764f
+=======
 >>>>>>> b1df5718425850745aed9e1ea1b365f7e9b3764f
             }
         });
@@ -292,6 +312,7 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
 <<<<<<< HEAD
+<<<<<<< HEAD
                 jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(25, 25, 25)
@@ -324,6 +345,8 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
                                         .addComponent(jLabel18))
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
 =======
+=======
+>>>>>>> b1df5718425850745aed9e1ea1b365f7e9b3764f
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
@@ -356,6 +379,9 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
                     .addComponent(jLabel18))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+<<<<<<< HEAD
+>>>>>>> b1df5718425850745aed9e1ea1b365f7e9b3764f
+=======
 >>>>>>> b1df5718425850745aed9e1ea1b365f7e9b3764f
 
         jLabel19.setText("CIN");
@@ -378,6 +404,7 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 705, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
+<<<<<<< HEAD
 <<<<<<< HEAD
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 705,
@@ -656,6 +683,32 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(classDrpdwn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel1Layout.createSequentialGroup()
+=======
+                            .addGap(74, 74, 74)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(TypeOpDrpdwn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(OperationDrpdwn, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(63, 63, 63)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(IDinput, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(DepartmentDrpdwn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(prenomInput, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGap(47, 47, 47)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(classDrpdwn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+>>>>>>> b1df5718425850745aed9e1ea1b365f7e9b3764f
                             .addGap(408, 408, 408)
                             .addComponent(validationBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel1Layout.createSequentialGroup()
@@ -746,11 +799,15 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(19, Short.MAX_VALUE))
         );
+<<<<<<< HEAD
+>>>>>>> b1df5718425850745aed9e1ea1b365f7e9b3764f
+=======
 >>>>>>> b1df5718425850745aed9e1ea1b365f7e9b3764f
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
+<<<<<<< HEAD
 <<<<<<< HEAD
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -759,12 +816,17 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
                                         javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap()));
 =======
+=======
+>>>>>>> b1df5718425850745aed9e1ea1b365f7e9b3764f
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
+<<<<<<< HEAD
+>>>>>>> b1df5718425850745aed9e1ea1b365f7e9b3764f
+=======
 >>>>>>> b1df5718425850745aed9e1ea1b365f7e9b3764f
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -775,6 +837,7 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     private void telInput1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_telInput1ActionPerformed
         // TODO add your handling code here:
     }// GEN-LAST:event_telInput1ActionPerformed
@@ -782,6 +845,11 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
     private void cinInputActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_cinInputActionPerformed
         // TODO add your handling code here:
     }// GEN-LAST:event_cinInputActionPerformed
+=======
+    private void cinInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cinInputActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cinInputActionPerformed
+>>>>>>> b1df5718425850745aed9e1ea1b365f7e9b3764f
 =======
     private void cinInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cinInputActionPerformed
         // TODO add your handling code here:
@@ -998,6 +1066,7 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> DepartmentDrpdwn;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     // private javax.swing.JFormattedTextField EmailInput;
     private PlaceholderTextField EmailInput;
@@ -1008,6 +1077,10 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
     private javax.swing.JLabel NavEnseignant;
     private javax.swing.JLabel NavEtudiant;
     private javax.swing.JLabel NavNotes;
+=======
+    private javax.swing.JFormattedTextField EmailInput;
+    private javax.swing.JFormattedTextField IDinput;
+>>>>>>> b1df5718425850745aed9e1ea1b365f7e9b3764f
 =======
     private javax.swing.JFormattedTextField EmailInput;
     private javax.swing.JFormattedTextField IDinput;
@@ -1028,8 +1101,11 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
 <<<<<<< HEAD
+<<<<<<< HEAD
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel1;
+=======
+>>>>>>> b1df5718425850745aed9e1ea1b365f7e9b3764f
 =======
 >>>>>>> b1df5718425850745aed9e1ea1b365f7e9b3764f
     private javax.swing.JLabel jLabel2;
@@ -1045,6 +1121,7 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
 <<<<<<< HEAD
+<<<<<<< HEAD
     // private javax.swing.JFormattedTextField nomInput;
     private PlaceholderTextField nomInput;
     // private javax.swing.JFormattedTextField numInscInput;
@@ -1053,10 +1130,15 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
     // private javax.swing.JFormattedTextField prenomInput;
     private PlaceholderTextField prenomInput;
 =======
+=======
+>>>>>>> b1df5718425850745aed9e1ea1b365f7e9b3764f
     private javax.swing.JFormattedTextField nomInput;
     private javax.swing.JFormattedTextField numInscInput;
     private javax.swing.JFormattedTextField prenomInput;
     private javax.swing.JTable searchTable;
+<<<<<<< HEAD
+>>>>>>> b1df5718425850745aed9e1ea1b365f7e9b3764f
+=======
 >>>>>>> b1df5718425850745aed9e1ea1b365f7e9b3764f
     private javax.swing.JFormattedTextField telInput1;
     private javax.swing.JButton validationBtn;

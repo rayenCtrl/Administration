@@ -2,6 +2,7 @@
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <Properties>
         <Property name="defaultCloseOperation" type="int" value="3"/>
     </Properties>
@@ -716,6 +717,8 @@
         </Container>
     </SubComponents>
 =======
+=======
+>>>>>>> b1df5718425850745aed9e1ea1b365f7e9b3764f
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
