@@ -1,0 +1,10 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "e:\\Downloads\\commons-lang3-3.12.0.jar",
+        "e:\\Downloads\\mysql-connector-java-5.1.15-bin.jar",
+        "e:\\Downloads\\password4j-1.5.4.jar",
+        "e:\\Downloads\\slf4j-api-1.7.9.jar",
+        "e:\\Downloads\\slf4j-simple-1.7.9.jar"
+    ]
+}
