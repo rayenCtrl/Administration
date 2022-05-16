@@ -4,30 +4,30 @@ import java.sql.*;
 import java.util.*;
 
 public class Etudiant extends Personne {
-    private int num_insc;
+    private int numInsc;
 
-    public Etudiant(int ID, String nom, String prenom, String email, int CIN, String tel, int num_insc) {
+    public Etudiant(int ID, String nom, String prenom, String email, int CIN, String tel, int numInsc) {
         super(ID, nom, prenom, email, CIN, tel);
-        this.num_insc = num_insc;
+        this.numInsc = numInsc;
     }
 
     // constructor without parameters
     public Etudiant() {
         super();
-        this.num_insc = -1;
+        this.numInsc = -1;
     }
 
     // getters and setters
     public int getNum_insc() {
-        return num_insc;
+        return numInsc;
     }
 
-    public void setId(int id) {
-        this.setId(id);
-    }
+    // public void setId(int id) {
+    // super.setID(id);
+    // }
 
-    public void setNum_insc(int num_insc) {
-        this.num_insc = num_insc;
+    public void setNum_insc(int numInsc) {
+        this.numInsc = numInsc;
     }
 
     @Override
@@ -41,7 +41,7 @@ public class Etudiant extends Personne {
         }
         if (id != 0) {
 
-            String query = "INSERT INTO étudiant (id, num_insc) VALUES (?, ?)";
+            String query = "INSERT INTO étudiant (IDÉtudiant, numInsc) VALUES (?, ?)";
             try {
                 PreparedStatement preparedStatement = DBConnection.getConnection().prepareStatement(query);
                 preparedStatement.setInt(1, id);
@@ -60,14 +60,14 @@ public class Etudiant extends Personne {
     }
 
     public int findByNum_insc() {
-        // search for etudiant by his num_insc
-        String query = "SELECT * FROM étudiant WHERE num_insc = ?";
+        // search for etudiant by his numInsc
+        String query = "SELECT * FROM étudiant WHERE numInsc = ?";
         try {
             PreparedStatement preparedStatement = DBConnection.getConnection().prepareStatement(query);
             preparedStatement.setInt(1, getNum_insc());
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
-                return resultSet.getInt("id");
+                return resultSet.getInt("IDÉtudiant");
             } else {
                 return -1;
             }
@@ -81,7 +81,7 @@ public class Etudiant extends Personne {
     @Override
     public void update(Object object) {
         // object is an etudiant
-        // if num_insc is changed, check if the new num_insc is already used
+        // if numInsc is changed, check if the new numInsc is already used
 
         Etudiant etudiant = (Etudiant) object;
         if (etudiant.getNum_insc() != getNum_insc()) {
@@ -90,7 +90,7 @@ public class Etudiant extends Personne {
             }
         }
         super.update(object);
-        String query = "UPDATE étudiant SET num_insc = ? WHERE id = ?";
+        String query = "UPDATE étudiant SET numInsc = ? WHERE IDÉtudiant = ?";
         try {
             PreparedStatement preparedStatement = DBConnection.getConnection().prepareStatement(query);
             preparedStatement.setInt(1, etudiant.getNum_insc());
@@ -107,13 +107,13 @@ public class Etudiant extends Personne {
     public int find() {
         // object is an etudiant
         // find etudiant's id in the database if found return the id
-        String query = "SELECT * FROM étudiant WHERE id = ?";
+        String query = "SELECT * FROM étudiant WHERE IDÉtudiant = ?";
         try {
             PreparedStatement preparedStatement = DBConnection.getConnection().prepareStatement(query);
             preparedStatement.setInt(1, getID());
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
-                return resultSet.getInt("id");
+                return resultSet.getInt("IDÉtudiant");
             } else {
                 return -1;
             }
@@ -127,14 +127,16 @@ public class Etudiant extends Personne {
     public void delete() {
         // object is an etudiant
         // delete etudiant from the database
-        String query = "DELETE FROM étudiant WHERE id = ?";
-        try {
-            PreparedStatement preparedStatement = DBConnection.getConnection().prepareStatement(query);
-            preparedStatement.setInt(1, getID());
-            preparedStatement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        super.delete();
+        // String query = "DELETE FROM étudiant WHERE IDÉtudiant = ?";
+        // try {
+        // PreparedStatement preparedStatement =
+        // DBConnection.getConnection().prepareStatement(query);
+        // preparedStatement.setInt(1, getID());
+        // preparedStatement.executeUpdate();
+        // } catch (SQLException e) {
+        // e.printStackTrace();
+        // }
 
     }
 
@@ -148,9 +150,9 @@ public class Etudiant extends Personne {
             PreparedStatement preparedStatement = DBConnection.getConnection().prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                Etudiant etudiant = new Etudiant(resultSet.getInt("id"), resultSet.getString("nom"),
+                Etudiant etudiant = new Etudiant(resultSet.getInt("IDÉtudiant"), resultSet.getString("nom"),
                         resultSet.getString("prenom"), resultSet.getString("email"), resultSet.getInt("CIN"),
-                        resultSet.getString("tel"), resultSet.getInt("num_insc"));
+                        resultSet.getString("tel"), resultSet.getInt("numInsc"));
                 etudiants.add(etudiant);
             }
         } catch (SQLException e) {
@@ -164,7 +166,7 @@ public class Etudiant extends Personne {
     public void read() {
         // object is an etudiant
         // read etudiant from the database
-        String query = "SELECT * FROM étudiant WHERE id = ?";
+        String query = "SELECT * FROM étudiant WHERE IDÉtudiant = ?";
         try {
             PreparedStatement preparedStatement = DBConnection.getConnection().prepareStatement(query);
             preparedStatement.setInt(1, getID());
@@ -175,7 +177,7 @@ public class Etudiant extends Personne {
                 setEmail(resultSet.getString("email"));
                 setCIN(resultSet.getInt("CIN"));
                 setTel(resultSet.getString("tel"));
-                setNum_insc(resultSet.getInt("num_insc"));
+                setNum_insc(resultSet.getInt("numInsc"));
 
             } else {
                 return;

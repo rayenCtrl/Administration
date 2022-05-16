@@ -124,10 +124,10 @@ public abstract class Personne implements CRUD {
         try {
             Connection connection = DBConnection.getConnection();
             Statement statement = connection.createStatement();
-            String query = "SELECT id FROM personne WHERE email = '" + getEmail() + "'";
+            String query = "SELECT idp FROM personne WHERE email = '" + getEmail() + "'";
             ResultSet resultSet = statement.executeQuery(query);
             if (resultSet.next()) {
-                return resultSet.getInt("id");
+                return resultSet.getInt("idp");
             } else {
                 return -1;
             }
@@ -144,10 +144,10 @@ public abstract class Personne implements CRUD {
         try {
             Connection connection = DBConnection.getConnection();
             Statement statement = connection.createStatement();
-            String query = "SELECT id FROM personne WHERE tel = '" + getTel() + "'";
+            String query = "SELECT idp FROM personne WHERE tel = '" + getTel() + "'";
             ResultSet resultSet = statement.executeQuery(query);
             if (resultSet.next()) {
-                return resultSet.getInt("id");
+                return resultSet.getInt("idp");
             } else {
                 return -1;
             }
@@ -164,10 +164,10 @@ public abstract class Personne implements CRUD {
         try {
             Connection connection = DBConnection.getConnection();
             Statement statement = connection.createStatement();
-            String query = "SELECT id FROM personne WHERE cin = '" + getCIN() + "'";
+            String query = "SELECT idp FROM personne WHERE cin = '" + getCIN() + "'";
             ResultSet resultSet = statement.executeQuery(query);
             if (resultSet.next()) {
-                return resultSet.getInt("id");
+                return resultSet.getInt("idp");
             } else {
                 return -1;
             }
@@ -185,10 +185,10 @@ public abstract class Personne implements CRUD {
         try {
             Connection connection = DBConnection.getConnection();
             Statement statement = connection.createStatement();
-            String query = "SELECT id FROM personne WHERE id = '" + getID() + "'";
+            String query = "SELECT idp FROM personne WHERE idp = '" + getID() + "'";
             ResultSet resultSet = statement.executeQuery(query);
             if (resultSet.next()) {
-                return resultSet.getInt("id");
+                return resultSet.getInt("idp");
             } else {
                 return -1;
             }
@@ -223,7 +223,7 @@ public abstract class Personne implements CRUD {
             }
         }
         // update the personne in the database
-        String query = "UPDATE personne SET nom = ?, prenom = ?, email = ?, cin = ?, tel = ? WHERE id = ?";
+        String query = "UPDATE personne SET nom = ?, prenom = ?, email = ?, cin = ?, tel = ? WHERE idp = ?";
         try {
             PreparedStatement preparedStatement = DBConnection.getConnection().prepareStatement(query);
             preparedStatement.setString(1, personne.getNom());
