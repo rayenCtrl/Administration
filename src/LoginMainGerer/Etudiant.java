@@ -47,6 +47,7 @@ public class Etudiant extends Personne {
                 preparedStatement.setInt(1, id);
                 preparedStatement.setInt(2, getNum_insc());
                 preparedStatement.executeUpdate();
+                setID(id);
             } catch (SQLException e) {
                 e.printStackTrace();
                 return -1;
@@ -79,28 +80,51 @@ public class Etudiant extends Personne {
     }
 
     @Override
-    public void update(Object object) {
-        // object is an etudiant
-        // if numInsc is changed, check if the new numInsc is already used
+    // public int update(Object object) {
+    // // object is an etudiant
+    // // if numInsc is changed, check if the new numInsc is already used
 
-        Etudiant etudiant = (Etudiant) object;
-        if (etudiant.getNum_insc() != getNum_insc()) {
-            if (findByNum_insc() > 0) {
-                return;
-            }
-        }
-        super.update(object);
+    // Etudiant etudiant = (Etudiant) object;
+    // // System.out.println(getNum_insc());
+    // // System.out.println(etudiant.getNum_insc());
+    // if (etudiant.getNum_insc() != getNum_insc()) {
+    // if (etudiant.findByNum_insc() > 0) {
+    // return -1;
+    // }
+    // }
+    // // return super.update(etudiant);
+    // String query = "UPDATE étudiant SET numInsc = ? WHERE IDÉtudiant = ?";
+    // System.out.println(etudiant.getNum_insc());
+    // System.out.println(getID());
+    // return 0;
+    // // try {
+    // // // PreparedStatement preparedStatement =
+    // // // DBConnection.getConnection().prepareStatement(query);
+    // // // preparedStatement.setInt(1, etudiant.getNum_insc());
+    // // // preparedStatement.setInt(2, getID());
+    // // // System.out.println(preparedStatement);
+    // // System.out.println(etudiant.getNum_insc());
+    // // System.out.println(getID());
+    // // // preparedStatement.executeQuery();
+    // // return etudiant.getID();
+    // // } catch () {
+
+    // // e.printStackTrace();
+    // // return -2;
+    // // }
+
+    // }
+    public void update() {
+        super.update();
         String query = "UPDATE étudiant SET numInsc = ? WHERE IDÉtudiant = ?";
         try {
             PreparedStatement preparedStatement = DBConnection.getConnection().prepareStatement(query);
-            preparedStatement.setInt(1, etudiant.getNum_insc());
-            preparedStatement.setInt(2, etudiant.getID());
+            preparedStatement.setInt(1, getNum_insc());
+            preparedStatement.setInt(2, getID());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
-
             e.printStackTrace();
         }
-
     }
 
     @Override
@@ -145,7 +169,7 @@ public class Etudiant extends Personne {
         // find all etudiants in the database
         // return a list of etudiants
         List<Object> etudiants = new ArrayList<>();
-        String query = "SELECT * FROM étudiant";
+        String query = "SELECT IDÉtudiant, nom, prenom, cin, tel, email, numInsc FROM étudiant join personne on étudiant.IDÉtudiant = personne.IDP";
         try {
             PreparedStatement preparedStatement = DBConnection.getConnection().prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -185,6 +209,12 @@ public class Etudiant extends Personne {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public String toString() {
+        return "Etudiant [IDÉtudiant=" + getID() + ", nom=" + getNom() + ", prenom=" + getPrenom() + ", email="
+                + getEmail()
+                + ", CIN=" + getCIN() + ", tel=" + getTel() + ", numInsc=" + getNum_insc() + "]";
     }
 
 }

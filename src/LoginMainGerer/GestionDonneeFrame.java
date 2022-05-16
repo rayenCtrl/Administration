@@ -1,6 +1,9 @@
 
 package LoginMainGerer;
 
+import java.util.*;
+import javax.swing.table.DefaultTableModel;
+
 public class GestionDonneeFrame extends javax.swing.JFrame {
 
     public GestionDonneeFrame() {
@@ -683,21 +686,25 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Veuillez remplir tous les champs", "Erreur",
                             JOptionPane.ERROR_MESSAGE);
                 } else {
-                    // check if the student already exists
-                    if (etudiant2.findByNum_insc() >= 0) {
-                        JOptionPane.showMessageDialog(null, "Cet étudiant existe déjà", "Erreur",
+                    // check if the student exists
+                    if (etudiant2.findByNum_insc() < 0) {
+                        JOptionPane.showMessageDialog(null, "Cet étudiant n'existe pas", "Erreur",
                                 JOptionPane.ERROR_MESSAGE);
                     }
                     // check if email already used
                     else if (etudiant2.findByEmail() >= 0) {
                         JOptionPane.showMessageDialog(null, "Cet email existe déjà", "Erreur",
                                 JOptionPane.ERROR_MESSAGE);
+                        // check if email is valid
                     } else {
                         // update student
-                        Etudiant etudiant3 = new Etudiant();
-                        // etudiant is a personne
-                        etudiant3.setID(id);
-                        etudiant3.update(etudiant2);
+                        etudiant2.setID(id);
+                        System.out.println(etudiant2.toString());
+                        etudiant2.update();
+                        // Etudiant etudiant3 = new Etudiant();
+                        // // etudiant is a personne
+                        // etudiant3.setID(id);
+                        // System.out.println(etudiant3.update(etudiant2));
 
                         // clear inputs
                         nomInput.setText("");
@@ -738,6 +745,21 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
 
     }// GEN-LAST:event_validationBtnActionPerformed
 
+    public void fillTable() {
+        // get all students
+        Etudiant etudiant = new Etudiant();
+        List<Object> etudiants = etudiant.findAll();
+        // fill table
+        DefaultTableModel model = (DefaultTableModel) searchTable.getModel();
+        model.setRowCount(0);
+        for (Object etudiant1 : etudiants) {
+            Etudiant etudiant2 = (Etudiant) etudiant1;
+            System.out.println(etudiant2.toString());
+            model.addRow(new Object[] { etudiant2.getNum_insc(), etudiant2.getNom(), etudiant2.getPrenom(),
+                    etudiant2.getEmail(), etudiant2.getCIN(), etudiant2.getTel() });
+        }
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -777,9 +799,13 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GestionDonneeFrame().setVisible(true);
+                GestionDonneeFrame frame = new GestionDonneeFrame();
+                frame.setVisible(true);
+
+                frame.fillTable();
             }
         });
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
