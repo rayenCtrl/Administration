@@ -11,9 +11,19 @@ public class Etudiant extends Personne {
         this.num_insc = num_insc;
     }
 
+    // constructor without parameters
+    public Etudiant() {
+        super();
+        this.num_insc = -1;
+    }
+
     // getters and setters
     public int getNum_insc() {
         return num_insc;
+    }
+
+    public void setId(int id) {
+        this.setId(id);
     }
 
     public void setNum_insc(int num_insc) {
@@ -31,7 +41,7 @@ public class Etudiant extends Personne {
         }
         if (id != 0) {
 
-            String query = "INSERT INTO etudiant (id, num_insc) VALUES (?, ?)";
+            String query = "INSERT INTO étudiant (id, num_insc) VALUES (?, ?)";
             try {
                 PreparedStatement preparedStatement = DBConnection.getConnection().prepareStatement(query);
                 preparedStatement.setInt(1, id);
@@ -49,9 +59,9 @@ public class Etudiant extends Personne {
 
     }
 
-    private int findByNum_insc() {
+    public int findByNum_insc() {
         // search for etudiant by his num_insc
-        String query = "SELECT * FROM etudiant WHERE num_insc = ?";
+        String query = "SELECT * FROM étudiant WHERE num_insc = ?";
         try {
             PreparedStatement preparedStatement = DBConnection.getConnection().prepareStatement(query);
             preparedStatement.setInt(1, getNum_insc());
@@ -80,7 +90,7 @@ public class Etudiant extends Personne {
             }
         }
         super.update(object);
-        String query = "UPDATE etudiant SET num_insc = ? WHERE id = ?";
+        String query = "UPDATE étudiant SET num_insc = ? WHERE id = ?";
         try {
             PreparedStatement preparedStatement = DBConnection.getConnection().prepareStatement(query);
             preparedStatement.setInt(1, etudiant.getNum_insc());
@@ -97,7 +107,7 @@ public class Etudiant extends Personne {
     public int find() {
         // object is an etudiant
         // find etudiant's id in the database if found return the id
-        String query = "SELECT * FROM etudiant WHERE id = ?";
+        String query = "SELECT * FROM étudiant WHERE id = ?";
         try {
             PreparedStatement preparedStatement = DBConnection.getConnection().prepareStatement(query);
             preparedStatement.setInt(1, getID());
@@ -117,7 +127,7 @@ public class Etudiant extends Personne {
     public void delete() {
         // object is an etudiant
         // delete etudiant from the database
-        String query = "DELETE FROM etudiant WHERE id = ?";
+        String query = "DELETE FROM étudiant WHERE id = ?";
         try {
             PreparedStatement preparedStatement = DBConnection.getConnection().prepareStatement(query);
             preparedStatement.setInt(1, getID());
@@ -133,7 +143,7 @@ public class Etudiant extends Personne {
         // find all etudiants in the database
         // return a list of etudiants
         List<Object> etudiants = new ArrayList<>();
-        String query = "SELECT * FROM etudiant";
+        String query = "SELECT * FROM étudiant";
         try {
             PreparedStatement preparedStatement = DBConnection.getConnection().prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -154,7 +164,7 @@ public class Etudiant extends Personne {
     public void read() {
         // object is an etudiant
         // read etudiant from the database
-        String query = "SELECT * FROM etudiant WHERE id = ?";
+        String query = "SELECT * FROM étudiant WHERE id = ?";
         try {
             PreparedStatement preparedStatement = DBConnection.getConnection().prepareStatement(query);
             preparedStatement.setInt(1, getID());

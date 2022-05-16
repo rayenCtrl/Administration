@@ -4,6 +4,12 @@
  */
 package LoginMainGerer;
 
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+
+import java.awt.Frame;
+
 /**
  *
  * @author msi
@@ -365,6 +371,8 @@ public class ChefHomeFrame extends javax.swing.JFrame {
 
     private void GestionBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_GestionBtnActionPerformed
         // TODO add your handling code here:
+        this.dispose();
+        new GestionDonneeFrame().setVisible(true);
     }// GEN-LAST:event_GestionBtnActionPerformed
 
     /**
@@ -405,9 +413,21 @@ public class ChefHomeFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ChefHomeFrame().setVisible(true);
+                ChefHomeFrame chefHomeFrame = new ChefHomeFrame();
+
+                WindowListener listener = new WindowAdapter() {
+                    public void windowClosing(WindowEvent evt) {
+                        Frame frame = (Frame) evt.getSource();
+                        System.out.println("Closing = " + frame.getTitle());
+                        DBConnection.closeConnection();
+                        DBConnection.resetConnection();
+                    }
+                };
+                chefHomeFrame.addWindowListener(listener);
+                chefHomeFrame.setVisible(true);
             }
         });
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

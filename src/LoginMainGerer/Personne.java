@@ -22,6 +22,12 @@ public abstract class Personne implements CRUD {
 
     public Personne() {
         this.ID = -1;
+        this.nom = "";
+        this.prenom = "";
+        this.email = "";
+        this.CIN = -1;
+        this.tel = "";
+
     }
 
     // getters and setters
