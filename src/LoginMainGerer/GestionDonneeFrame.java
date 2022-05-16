@@ -1,15 +1,12 @@
 
 package LoginMainGerer;
 
-
 public class GestionDonneeFrame extends javax.swing.JFrame {
-
 
     public GestionDonneeFrame() {
         initComponents();
     }
 
-   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
     // Code">//GEN-BEGIN:initComponents
@@ -841,3 +838,4 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
     private javax.swing.JOptionPane JOptionPane;
     // End of variables declaration//GEN-END:variables
 }
+// hello rayen
