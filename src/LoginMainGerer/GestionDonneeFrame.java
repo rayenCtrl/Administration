@@ -117,7 +117,7 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
                 });
 
                 jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-                jLabel10.setText("ID Élément:");
+                jLabel10.setText("ID Élément:"); // NOI18N
 
                 IDinput.setForeground(new java.awt.Color(153, 153, 153));
                 // IDinput.setText("taper ID de l'element");
