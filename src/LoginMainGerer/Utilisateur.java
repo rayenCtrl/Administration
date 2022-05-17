@@ -38,6 +38,10 @@ public class Utilisateur extends Personne {
         this.mdp = mdp;
     }
 
+    public void generateandSetMdp() {
+        this.mdp = String.valueOf(PasswordGenerator.generatePassword(8));
+    }
+
     public String getRole() {
         return role;
     }
@@ -50,29 +54,31 @@ public class Utilisateur extends Personne {
     public Utilisateur(int ID, String nom, String prenom, String email, int CIN, String tel, String role) {
         super(ID, nom, prenom, email, CIN, tel);
         this.role = role;
-        this.mdp = generatePassword(8).toString();
+
+        System.out.println("mdp generated: " + this.mdp);
+    }
+    // constructor without mdp and CIN and tel and ID
+
+    public Utilisateur(String nom, String prenom, String email, String role) {
+        super(-1, nom, prenom, email, -1, "");
+
+        this.role = role;
+        // System.out.println(this.generatePassword(8));
+
+        this.mdp = String.valueOf(PasswordGenerator.generatePassword(8));
+        System.out.println("mdp generated: " + this.mdp);
+    }
+    // Constructor without mpd and ID
+
+    // toString
+    @Override
+    public String toString() {
+        return "Utilisateur{" + "ID=" + getID() + ", nom=" + getNom() + ", prenom=" + getPrenom() + ", email="
+                + getEmail()
+                + ", CIN=" + getCIN() + ", tel=" + getTel() + ", mdp=" + getMdp() + ", role=" + getRole() + '}';
     }
 
     // password generator
-    private static char[] generatePassword(int length) {
-        String capitalCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        String lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz";
-        String specialCharacters = "!@#$";
-        String numbers = "1234567890";
-        String combinedChars = capitalCaseLetters + lowerCaseLetters + specialCharacters + numbers;
-        Random random = new Random();
-        char[] password = new char[length];
-
-        password[0] = lowerCaseLetters.charAt(random.nextInt(lowerCaseLetters.length()));
-        password[1] = capitalCaseLetters.charAt(random.nextInt(capitalCaseLetters.length()));
-        password[2] = specialCharacters.charAt(random.nextInt(specialCharacters.length()));
-        password[3] = numbers.charAt(random.nextInt(numbers.length()));
-
-        for (int i = 4; i < length; i++) {
-            password[i] = combinedChars.charAt(random.nextInt(combinedChars.length()));
-        }
-        return password;
-    }
 
     @Override
     public List<Object> findAll() {
@@ -141,5 +147,12 @@ public class Utilisateur extends Personne {
 
     @Override
     public void read() {
+    }
+    // test generate password in main
+
+    public static void main(String[] args) {
+        // Utilisateur utilisateur = new Utilisateur();
+        Utilisateur khalil = new Utilisateur("Khalil", "Bessaad", "k.bessaad19019@pi.tn", "Administrateur");
+        System.out.println(khalil.toString());
     }
 }
