@@ -7,7 +7,8 @@ public interface CRUD {
 
     public void read();
 
-    public void update(Object object);
+    // public int update(Object object);
+    public void update();
 
     public void delete();
 

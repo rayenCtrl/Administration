@@ -199,51 +199,71 @@ public abstract class Personne implements CRUD {
     }
 
     @Override
-    public void update(Object object) {
-        // object is a personne
-        // prepare information to update
-        Personne personne = (Personne) object;
+    // public int update(Object object) {
+    // // object is a personne
+    // // prepare information to update
+    // Personne personne = (Personne) object;
 
-        // if email is changed, check if the email already exists
-        if (!getEmail().equals(personne.getEmail())) {
-            if (findByEmail() >= 0) {
-                return;
-            }
-        }
-        // if tel is changed, check if the tel already exists
-        if (!getTel().equals(personne.getTel())) {
-            if (findByTel() >= 0) {
-                return;
-            }
-        }
-        // if CIN is changed, check if the CIN already exists
-        if (!(getCIN() == personne.getCIN())) {
-            if (findByCIN() >= 0) {
-                return;
-            }
-        }
-        // update the personne in the database
+    // // if email is changed, check if the email already exists
+    // if (!getEmail().equals(personne.getEmail())) {
+    // if (personne.findByEmail() >= 0) {
+    // return -1;
+    // }
+    // }
+    // // if tel is changed, check if the tel already exists
+    // if (!getTel().equals(personne.getTel())) {
+    // if (personne.findByTel() >= 0) {
+    // return -2;
+    // }
+    // }
+    // // if CIN is changed, check if the CIN already exists
+    // if (!(getCIN() == personne.getCIN())) {
+    // if (personne.findByCIN() >= 0) {
+    // return -3;
+    // }
+    // }
+    // // update the personne in the database
+    // String query = "UPDATE personne SET nom = ?, prenom = ?, email = ?, cin = ?,
+    // tel = ? WHERE idp = ?";
+    // try {
+    // PreparedStatement preparedStatement =
+    // DBConnection.getConnection().prepareStatement(query);
+    // preparedStatement.setString(1, personne.getNom());
+    // preparedStatement.setString(2, personne.getPrenom());
+    // preparedStatement.setString(3, personne.getEmail());
+    // preparedStatement.setInt(4, personne.getCIN());
+    // preparedStatement.setString(5, personne.getTel());
+    // preparedStatement.setInt(6, getID());
+    // preparedStatement.executeUpdate();
+    // return personne.getID();
+    // } catch (SQLException e) {
+    // e.printStackTrace();
+    // return -4;
+    // }
+
+    // }
+
+    public void update() {
         String query = "UPDATE personne SET nom = ?, prenom = ?, email = ?, cin = ?, tel = ? WHERE idp = ?";
         try {
             PreparedStatement preparedStatement = DBConnection.getConnection().prepareStatement(query);
-            preparedStatement.setString(1, personne.getNom());
-            preparedStatement.setString(2, personne.getPrenom());
-            preparedStatement.setString(3, personne.getEmail());
-            preparedStatement.setInt(4, personne.getCIN());
-            preparedStatement.setString(5, personne.getTel());
-            preparedStatement.setInt(6, personne.getID());
+            preparedStatement.setString(1, getNom());
+            preparedStatement.setString(2, getPrenom());
+            preparedStatement.setString(3, getEmail());
+            preparedStatement.setInt(4, getCIN());
+            preparedStatement.setString(5, getTel());
+            preparedStatement.setInt(6, getID());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
     }
 
     @Override
     public void delete() {
         // object is a personne
         // delete the personne from the database
-        String query = "DELETE FROM personne WHERE id = ?";
+        String query = "DELETE FROM personne WHERE idp = ?";
         try {
             PreparedStatement preparedStatement = DBConnection.getConnection().prepareStatement(query);
             preparedStatement.setInt(1, getID());
@@ -300,5 +320,7 @@ public abstract class Personne implements CRUD {
             e.printStackTrace();
         }
     }
+
+    // main
 
 }
