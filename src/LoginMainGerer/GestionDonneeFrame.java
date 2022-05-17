@@ -3,6 +3,7 @@ package LoginMainGerer;
 
 import java.util.*;
 import javax.swing.table.DefaultTableModel;
+import java.util.regex.Pattern;
 
 public class GestionDonneeFrame extends javax.swing.JFrame {
 
@@ -101,7 +102,7 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
 
                 TypeOpDrpdwn.setForeground(new java.awt.Color(51, 51, 51));
                 TypeOpDrpdwn.setModel(new javax.swing.DefaultComboBoxModel<>(
-                                new String[] { "Modification", "Ajouter", "Supprimer" }));
+                                new String[] { "Ajout", "Modification", "Suppression" }));
                 TypeOpDrpdwn.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 TypeOpDrpdwnActionPerformed(evt);
@@ -112,7 +113,7 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
                 jLabel11.setText("Num Insc");
 
                 numInscInput.setForeground(new java.awt.Color(153, 153, 153));
-                numInscInput.setText("Laisser vide pour ne pas modifier");
+                numInscInput.setPlaceholder("Saisir le numéro d'inscription");
                 numInscInput.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 numInscInputActionPerformed(evt);
@@ -123,7 +124,7 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
                 jLabel12.setText("Nom");
 
                 nomInput.setForeground(new java.awt.Color(153, 153, 153));
-                nomInput.setText("Laisser vide pour ne pas modifier");
+                nomInput.setPlaceholder("Saisir le nom");
                 nomInput.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 nomInputActionPerformed(evt);
@@ -134,7 +135,7 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
                 jLabel13.setText("Prénom");
 
                 prenomInput.setForeground(new java.awt.Color(153, 153, 153));
-                prenomInput.setText("Laisser vide pour ne pas modifier");
+                prenomInput.setPlaceholder("Saisir le prénom");
                 prenomInput.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 prenomInputActionPerformed(evt);
@@ -145,7 +146,7 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
                 jLabel14.setText("Email");
 
                 EmailInput.setForeground(new java.awt.Color(153, 153, 153));
-                EmailInput.setText("Laisser vide pour ne pas modifier");
+                EmailInput.setPlaceholder("Saisir l'email");
                 EmailInput.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 EmailInputActionPerformed(evt);
@@ -236,12 +237,17 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
                                 return types[columnIndex];
                         }
                 });
+                searchTable.addMouseListener(new java.awt.event.MouseAdapter() {
+                        public void mouseClicked(java.awt.event.MouseEvent evt) {
+                                searchTableMouseClicked(evt);
+                        }
+                });
                 jScrollPane1.setViewportView(searchTable);
 
                 jLabel2.setText("Tél");
 
                 telInput1.setForeground(new java.awt.Color(153, 153, 153));
-                telInput1.setText("Laisser vide pour ne pas modifier");
+                telInput1.setPlaceholder("Saisir le numéro de téléphone");
                 telInput1.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 telInput1ActionPerformed(evt);
@@ -316,7 +322,7 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
                 jLabel19.setText("CIN");
 
                 cinInput.setForeground(new java.awt.Color(153, 153, 153));
-                cinInput.setText("Laisser vide pour ne pas modifier");
+                cinInput.setPlaceholder("Saisir le CIN");
                 cinInput.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 cinInputActionPerformed(evt);
@@ -733,6 +739,24 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
                 // TODO add your handling code here:
         }// GEN-LAST:event_SearchInputActionPerformed
 
+        private void searchTableMouseClicked(java.awt.event.MouseEvent evt) {
+                DefaultTableModel tblModel = (DefaultTableModel) searchTable.getModel();
+                String tblName = tblModel.getValueAt(searchTable.getSelectedRow(), 1).toString();
+                String tblPrenom = tblModel.getValueAt(searchTable.getSelectedRow(), 2).toString();
+                String tblTel = tblModel.getValueAt(searchTable.getSelectedRow(), 5).toString();
+                String tblCin = tblModel.getValueAt(searchTable.getSelectedRow(), 4).toString();
+                String tblEmail = tblModel.getValueAt(searchTable.getSelectedRow(), 3).toString();
+                String tblNumInsc = tblModel.getValueAt(searchTable.getSelectedRow(), 0).toString();
+
+                nomInput.setText(tblName);
+                prenomInput.setText(tblPrenom);
+                telInput1.setText(tblTel);
+                cinInput.setText(tblCin);
+                EmailInput.setText(tblEmail);
+                numInscInput.setText(tblNumInsc);
+
+        }
+
         private void validationBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_validationBtnActionPerformed
                 // TODO add your handling code here:
                 // get selected operation and store it in a variable
@@ -784,84 +808,152 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
                                 break;
                         case "Modification":
                                 // get inputs
-                                String nom2 = nomInput.getText();
-                                String prenom2 = prenomInput.getText();
-                                String numInsc2 = numInscInput.getText();
-                                String email2 = EmailInput.getText();
-                                String tel2 = telInput1.getText();
-                                int cin2 = Integer.parseInt(cinInput.getText());
-
-                                // int id = Integer.parseInt(IDinput.getText());
-                                Etudiant etudiant2 = new Etudiant();
-                                etudiant2.setNom(nom2);
-                                etudiant2.setPrenom(prenom2);
-                                etudiant2.setNum_insc(Integer.parseInt(numInsc2));
-                                etudiant2.setEmail(email2);
-                                etudiant2.setTel(tel2);
-                                etudiant2.setCIN(cin2);
+                                String nom1 = nomInput.getText();
+                                String prenom1 = prenomInput.getText();
+                                String numInsc1 = numInscInput.getText();
+                                String email1 = EmailInput.getText();
+                                String tel1 = telInput1.getText();
+                                String cin1 = cinInput.getText();
+                                Etudiant etudiant1 = new Etudiant();
+                                etudiant1.setNom(nom1);
+                                etudiant1.setPrenom(prenom1);
+                                etudiant1.setNum_insc(Integer.parseInt(numInsc1));
+                                etudiant1.setEmail(email1);
 
                                 // check if inputs are empty
-                                if (nom2.isEmpty() || prenom2.isEmpty() || numInsc2.isEmpty() || email2.isEmpty()) {
+                                if (nom1.isEmpty() || prenom1.isEmpty() || numInsc1.isEmpty() || email1.isEmpty()) {
                                         JOptionPane.showMessageDialog(null, "Veuillez remplir tous les champs",
                                                         "Erreur",
                                                         JOptionPane.ERROR_MESSAGE);
-                                } else {
-                                        // check if the student exists
-                                        if (etudiant2.findByNum_insc() < 0) {
-                                                JOptionPane.showMessageDialog(null, "Cet étudiant n'existe pas",
+                                        break;
+                                }
+                                // check if email is valid
+                                Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern
+                                                .compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$",
+                                                                Pattern.CASE_INSENSITIVE);
+                                if (!VALID_EMAIL_ADDRESS_REGEX.matcher(email1).find()) {
+                                        JOptionPane.showMessageDialog(null, "Email invalide", "Erreur",
+                                                        JOptionPane.ERROR_MESSAGE);
+                                        break;
+                                }
+                                // check if tel is valid
+                                Pattern VALID_TEL_REGEX = Pattern.compile("^[0-9]{8}$", Pattern.CASE_INSENSITIVE);
+                                if (!VALID_TEL_REGEX.matcher(tel1).find()) {
+                                        JOptionPane.showMessageDialog(null, "Numéro de téléphone invalide", "Erreur",
+                                                        JOptionPane.ERROR_MESSAGE);
+                                        break;
+                                }
+                                // check if cin is valid
+                                Pattern VALID_CIN_REGEX = Pattern.compile("^[0-9]{8}$", Pattern.CASE_INSENSITIVE);
+                                if (!VALID_CIN_REGEX.matcher(cin1).find()) {
+                                        JOptionPane.showMessageDialog(null, "CIN invalide", "Erreur",
+                                                        JOptionPane.ERROR_MESSAGE);
+                                        break;
+                                }
+                                // check if the student already exists
+                                if (etudiant1.findByNum_insc() < 0 && etudiant1.findByEmail() < 0
+                                                && etudiant1.findByCIN() < 0) {
+                                        JOptionPane.showMessageDialog(null, "Cet étudiant n'existe pas!", "Erreur",
+                                                        JOptionPane.ERROR_MESSAGE);
+                                        break;
+
+                                }
+                                if (etudiant1.findByCIN() >= 0) {
+                                        Etudiant etudiant2 = new Etudiant();
+                                        etudiant2.setID(etudiant1.findByCIN());
+                                        etudiant2.read();
+                                        if (etudiant2.getNum_insc() != etudiant1.getNum_insc()
+                                                        && etudiant1.findByNum_insc() >= 0) {
+                                                JOptionPane.showMessageDialog(null,
+                                                                "Ce numéro d'inscription est déjà utilisé par un autre étudiant",
                                                                 "Erreur",
                                                                 JOptionPane.ERROR_MESSAGE);
-                                        }
-                                        // check if email already used
-                                        else if (etudiant2.findByEmail() >= 0) {
-                                                JOptionPane.showMessageDialog(null, "Cet email existe déjà", "Erreur",
-                                                                JOptionPane.ERROR_MESSAGE);
-                                                // check if email is valid
-                                        } else {
-                                                // update student
-                                                // etudiant2.setID(id);
-                                                System.out.println(etudiant2.toString());
-                                                etudiant2.update();
-                                                // Etudiant etudiant3 = new Etudiant();
-                                                // // etudiant is a personne
-                                                // etudiant3.setID(id);
-                                                // System.out.println(etudiant3.update(etudiant2));
 
-                                                // clear inputs
-                                                nomInput.setText("");
-                                                prenomInput.setText("");
-                                                numInscInput.setText("");
-                                                EmailInput.setText("");
+                                        } else if (etudiant2.getEmail() != etudiant1.getEmail()
+                                                        && etudiant1.findByEmail() >= 0) {
+                                                JOptionPane.showMessageDialog(null,
+                                                                "Cet email est déjà utilisé par un autre étudiant",
+                                                                "Erreur",
+                                                                JOptionPane.ERROR_MESSAGE);
+                                        } else {
+                                                etudiant1.setID(etudiant2.getID());
+                                                etudiant1.update();
+                                                JOptionPane.showMessageDialog(null,
+                                                                "L'étudiant a été modifié avec succès", "Succès",
+                                                                JOptionPane.INFORMATION_MESSAGE);
+                                        }
+                                        break;
+                                } else if (etudiant1.findByNum_insc() >= 0) {
+                                        Etudiant etudiant2 = new Etudiant();
+                                        etudiant2.setID(etudiant1.findByNum_insc());
+                                        etudiant2.read();
+                                        if (etudiant2.getCIN() != etudiant1.getCIN()
+                                                        && etudiant1.findByCIN() >= 0) {
+                                                JOptionPane.showMessageDialog(null,
+                                                                "Ce CIN est déjà utilisé par un autre étudiant",
+                                                                "Erreur",
+                                                                JOptionPane.ERROR_MESSAGE);
+                                        } else if (etudiant2.getEmail() != etudiant1.getEmail()
+                                                        && etudiant1.findByEmail() >= 0) {
+                                                JOptionPane.showMessageDialog(null,
+                                                                "Cet email est déjà utilisé par un autre étudiant",
+                                                                "Erreur",
+                                                                JOptionPane.ERROR_MESSAGE);
+                                        } else {
+                                                etudiant1.setID(etudiant2.getID());
+                                                etudiant1.update();
+                                                JOptionPane.showMessageDialog(null,
+                                                                "L'étudiant a été modifié avec succès", "Succès",
+                                                                JOptionPane.INFORMATION_MESSAGE);
+                                        }
+                                        break;
+                                } else if (etudiant1.findByEmail() >= 0) {
+                                        Etudiant etudiant2 = new Etudiant();
+                                        etudiant2.setID(etudiant1.findByEmail());
+                                        etudiant2.read();
+                                        if (etudiant2.getCIN() != etudiant1.getCIN()
+                                                        && etudiant1.findByCIN() >= 0) {
+                                                JOptionPane.showMessageDialog(null,
+                                                                "Ce CIN est déjà utilisé par un autre étudiant",
+                                                                "Erreur",
+                                                                JOptionPane.ERROR_MESSAGE);
+                                        } else if (etudiant2.getNum_insc() != etudiant1.getNum_insc()
+                                                        && etudiant1.findByNum_insc() >= 0) {
+                                                JOptionPane.showMessageDialog(null,
+                                                                "Ce numéro d'inscription est déjà utilisé par un autre étudiant",
+                                                                "Erreur",
+                                                                JOptionPane.ERROR_MESSAGE);
+                                        } else {
+                                                etudiant1.setID(etudiant2.getID());
+                                                etudiant1.update();
                                                 JOptionPane.showMessageDialog(null,
                                                                 "L'étudiant a été modifié avec succès", "Succès",
                                                                 JOptionPane.INFORMATION_MESSAGE);
                                         }
                                 }
+                                // clear the fields
+                                nomInput.setText("");
+                                prenomInput.setText("");
+                                numInscInput.setText("");
+                                cinInput.setText("");
+                                EmailInput.setText("");
+                                telInput1.setText("");
+
                                 break;
                         case "Suppression":
-                                // check if id is empty
-                                if (true) {// IDinput.getText().isEmpty()) {
-                                        JOptionPane.showMessageDialog(null,
-                                                        "Veuillez remplir le champ ID ou selectionner l'élément à supprimer",
+                                if (numInscInput.getText().equals("")) {
+                                        JOptionPane.showMessageDialog(null, "Veuillez séléctioner un étudiant",
                                                         "Erreur",
                                                         JOptionPane.ERROR_MESSAGE);
-                                } else {
-                                        // get id
-                                        // int id2 = Integer.parseInt(IDinput.getText());
-                                        // delete student
-                                        Etudiant etudiant4 = new Etudiant();
-                                        // etudiant4.setID(id2);
-                                        etudiant4.delete();
-                                        // clear inputs
-                                        nomInput.setText("");
-                                        prenomInput.setText("");
-                                        numInscInput.setText("");
-                                        EmailInput.setText("");
-                                        // IDinput.setText("");
-                                        JOptionPane.showMessageDialog(null, "L'étudiant a été supprimé avec succès",
-                                                        "Succès",
-                                                        JOptionPane.INFORMATION_MESSAGE);
+                                        break;
                                 }
+                                Etudiant e = new Etudiant();
+                                e.setNum_insc(Integer.parseInt(numInscInput.getText()));
+                                e.setID(e.findByNum_insc());
+
+                                e.delete();
+                                JOptionPane.showMessageDialog(null, "L'étudiant a été supprimé avec succès",
+                                                "Succès", JOptionPane.INFORMATION_MESSAGE);
 
                         default:
                                 break;
