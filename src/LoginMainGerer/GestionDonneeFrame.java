@@ -31,17 +31,17 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
                 jLabel11 = new javax.swing.JLabel();
                 numInscInput = new PlaceholderTextField("");
                 jLabel12 = new javax.swing.JLabel();
-                nomInput = new PlaceholderTextField();
+                nomInput = new PlaceholderTextField("");
                 jLabel13 = new javax.swing.JLabel();
                 prenomInput = new PlaceholderTextField("");
                 jLabel14 = new javax.swing.JLabel();
-                EmailInput = new PlaceholderTextField();
+                EmailInput = new PlaceholderTextField("");
                 validationBtn = new javax.swing.JButton();
                 SearchInput = new PlaceholderTextField();
                 jScrollPane1 = new javax.swing.JScrollPane();
                 searchTable = new javax.swing.JTable();
                 jLabel2 = new javax.swing.JLabel();
-                telInput1 = new PlaceholderTextField();
+                telInput1 = new PlaceholderTextField("");
                 jPanel2 = new javax.swing.JPanel();
                 jLabel1 = new javax.swing.JLabel();
                 jLabel3 = new javax.swing.JLabel();
@@ -50,7 +50,7 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
                 jLabel17 = new javax.swing.JLabel();
                 jLabel18 = new javax.swing.JLabel();
                 jLabel19 = new javax.swing.JLabel();
-                cinInput = new PlaceholderTextField();
+                cinInput = new PlaceholderTextField("");
 
                 setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -396,10 +396,13 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
                                                                                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                                                                                                 68,
                                                                                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                                .addComponent(numInscInput)
+                                                                                                                                .addComponent(numInscInput,
+                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                                                                188,
+                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                                                 .addComponent(prenomInput,
                                                                                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                                                                                                188,
                                                                                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE)))
                                                                                                 .addGap(28, 28, 28)
                                                                                                 .addGroup(jPanel1Layout
@@ -441,7 +444,7 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
                                                                                                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                                                                 .addComponent(nomInput,
                                                                                                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                                                                                                                188,
                                                                                                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE))
                                                                                                                                 .addGap(51, 51, 51)
                                                                                                                                 .addGroup(jPanel1Layout
@@ -663,32 +666,32 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
                                 // IDinput.setEnabled(false);
                                 // IDinput.setPlaceholder("");
                                 nomInput.setEnabled(true);
-                                nomInput.setPlaceholder("Saisir le Nom " + element);
+                                nomInput.setPlaceholder("Saisir le nom");
                                 prenomInput.setEnabled(true);
-                                prenomInput.setPlaceholder("Saisir le Prenom " + element);
+                                prenomInput.setPlaceholder("Saisir le prénom ");
                                 telInput1.setEnabled(true);
-                                telInput1.setPlaceholder("Saisir le Numero de Telephone " + element);
+                                telInput1.setPlaceholder("Saisir le numéro de téléphone");
                                 cinInput.setEnabled(true);
-                                cinInput.setPlaceholder("Saisir le CIN " + element);
+                                cinInput.setPlaceholder("Saisir le CIN");
                                 EmailInput.setEnabled(true);
-                                EmailInput.setPlaceholder("Saisir l'Email " + element);
+                                EmailInput.setPlaceholder("Saisir l'email");
                                 numInscInput.setEnabled(true);
-                                numInscInput.setPlaceholder("Saisir le Numero d'inscription " + element);
+                                numInscInput.setPlaceholder("Saisir le numéro d'inscription");
                                 break;
                         case "Modification":
 
                                 nomInput.setEnabled(true);
-                                nomInput.setPlaceholder("Saisir le Nom " + element);
+                                nomInput.setPlaceholder("Saisir le nom");
                                 prenomInput.setEnabled(true);
-                                prenomInput.setPlaceholder("Saisir le Prenom " + element);
+                                prenomInput.setPlaceholder("Saisir le prénom ");
                                 telInput1.setEnabled(true);
-                                telInput1.setPlaceholder("Saisir le Numero de Telephone " + element);
+                                telInput1.setPlaceholder("Saisir le numéro de téléphone");
                                 cinInput.setEnabled(true);
-                                cinInput.setPlaceholder("Saisir le CIN " + element);
+                                cinInput.setPlaceholder("Saisir le CIN");
                                 EmailInput.setEnabled(true);
-                                EmailInput.setPlaceholder("Saisir l'Email " + element);
+                                EmailInput.setPlaceholder("Saisir l'email");
                                 numInscInput.setEnabled(true);
-                                numInscInput.setPlaceholder("Saisir le Numero d'inscription " + element);
+                                numInscInput.setPlaceholder("Saisir le numéro d'inscription");
                                 break;
                         case "Suppression":
 
@@ -769,14 +772,19 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
                                 String prenom = prenomInput.getText();
                                 String numInsc = numInscInput.getText();
                                 String email = EmailInput.getText();
+                                String tel = telInput1.getText();
+                                String cin = cinInput.getText();
                                 Etudiant etudiant = new Etudiant();
                                 etudiant.setNom(nom);
                                 etudiant.setPrenom(prenom);
                                 etudiant.setNum_insc(Integer.parseInt(numInsc));
                                 etudiant.setEmail(email);
+                                etudiant.setTel(tel);
+                                etudiant.setCIN(Integer.parseInt(cin));
 
                                 // check if inputs are empty
-                                if (nom.isEmpty() || prenom.isEmpty() || numInsc.isEmpty() || email.isEmpty()) {
+                                if (nom.isEmpty() || prenom.isEmpty() || numInsc.isEmpty() || email.isEmpty()
+                                                || tel.isEmpty() || cin.isEmpty()) {
                                         JOptionPane.showMessageDialog(null, "Veuillez remplir tous les champs",
                                                         "Erreur",
                                                         JOptionPane.ERROR_MESSAGE);
@@ -791,7 +799,12 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
                                         else if (etudiant.findByEmail() >= 0) {
                                                 JOptionPane.showMessageDialog(null, "Cet email existe déjà", "Erreur",
                                                                 JOptionPane.ERROR_MESSAGE);
-                                        } else {
+                                        } else if (etudiant.findByCIN() >= 0) {
+                                                JOptionPane.showMessageDialog(null, "Ce CIN existe déjà", "Erreur",
+                                                                JOptionPane.ERROR_MESSAGE);
+                                        }
+
+                                        else {
                                                 // create student
                                                 System.out.println(etudiant.create());
                                                 // clear inputs
@@ -799,6 +812,9 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
                                                 prenomInput.setText("");
                                                 numInscInput.setText("");
                                                 EmailInput.setText("");
+                                                telInput1.setText("");
+                                                cinInput.setText("");
+
                                                 JOptionPane.showMessageDialog(null,
                                                                 "L'étudiant a été ajouté avec succès", "Succès",
                                                                 JOptionPane.INFORMATION_MESSAGE);
