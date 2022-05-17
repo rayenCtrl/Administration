@@ -190,7 +190,7 @@ public class Etudiant extends Personne {
     public void read() {
         // object is an etudiant
         // read etudiant from the database
-        String query = "SELECT * FROM étudiant WHERE IDÉtudiant = ?";
+        String query = "SELECT * FROM étudiant join personne on(idp=IDÉtudiant) WHERE IDÉtudiant = ?";
         try {
             PreparedStatement preparedStatement = DBConnection.getConnection().prepareStatement(query);
             preparedStatement.setInt(1, getID());

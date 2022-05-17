@@ -4,6 +4,7 @@ package LoginMainGerer;
 import java.util.*;
 import javax.swing.table.DefaultTableModel;
 import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 
 public class GestionDonneeFrame extends javax.swing.JFrame {
 
@@ -12,6 +13,7 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
         }
 
         @SuppressWarnings("unchecked")
+        // <editor-fold defaultstate="collapsed" desc="Generated
         // <editor-fold defaultstate="collapsed" desc="Generated
         // <editor-fold defaultstate="collapsed" desc="Generated
         // Code">//GEN-BEGIN:initComponents
@@ -33,9 +35,9 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
                 jLabel12 = new javax.swing.JLabel();
                 nomInput = new PlaceholderTextField("");
                 jLabel13 = new javax.swing.JLabel();
-                prenomInput = new PlaceholderTextField("");
-                jLabel14 = new javax.swing.JLabel();
                 EmailInput = new PlaceholderTextField("");
+                jLabel14 = new javax.swing.JLabel();
+                prenomInput = new PlaceholderTextField();
                 validationBtn = new javax.swing.JButton();
                 SearchInput = new PlaceholderTextField();
                 jScrollPane1 = new javax.swing.JScrollPane();
@@ -112,7 +114,7 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
                 jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                 jLabel11.setText("Num Insc");
 
-                numInscInput.setForeground(new java.awt.Color(153, 153, 153));
+                numInscInput.setForeground(new java.awt.Color(0, 0, 0));
                 numInscInput.setPlaceholder("Saisir le numéro d'inscription");
                 numInscInput.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,7 +125,7 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
                 jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                 jLabel12.setText("Nom");
 
-                nomInput.setForeground(new java.awt.Color(153, 153, 153));
+                nomInput.setForeground(new java.awt.Color(0, 0, 0));
                 nomInput.setPlaceholder("Saisir le nom");
                 nomInput.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -134,22 +136,22 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
                 jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                 jLabel13.setText("Prénom");
 
-                prenomInput.setForeground(new java.awt.Color(153, 153, 153));
-                prenomInput.setPlaceholder("Saisir le prénom");
-                prenomInput.addActionListener(new java.awt.event.ActionListener() {
+                EmailInput.setForeground(new java.awt.Color(0, 0, 0));
+                EmailInput.setPlaceholder("Saisir l'email");
+                EmailInput.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                prenomInputActionPerformed(evt);
+                                EmailInputActionPerformed(evt);
                         }
                 });
 
                 jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                 jLabel14.setText("Email");
 
-                EmailInput.setForeground(new java.awt.Color(153, 153, 153));
-                EmailInput.setPlaceholder("Saisir l'email");
-                EmailInput.addActionListener(new java.awt.event.ActionListener() {
+                prenomInput.setForeground(new java.awt.Color(0, 0, 0));
+                prenomInput.setPlaceholder("Saisir le prénom");
+                prenomInput.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                EmailInputActionPerformed(evt);
+                                prenomInputActionPerformed(evt);
                         }
                 });
 
@@ -164,7 +166,7 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
                         }
                 });
 
-                SearchInput.setForeground(new java.awt.Color(153, 153, 153));
+                SearchInput.setForeground(new java.awt.Color(0, 0, 0));
                 SearchInput.setText("Search");
                 SearchInput.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -246,7 +248,7 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
 
                 jLabel2.setText("Tél");
 
-                telInput1.setForeground(new java.awt.Color(153, 153, 153));
+                telInput1.setForeground(new java.awt.Color(0, 0, 0));
                 telInput1.setPlaceholder("Saisir le numéro de téléphone");
                 telInput1.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -321,7 +323,7 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
 
                 jLabel19.setText("CIN");
 
-                cinInput.setForeground(new java.awt.Color(153, 153, 153));
+                cinInput.setForeground(new java.awt.Color(0, 0, 0));
                 cinInput.setPlaceholder("Saisir le CIN");
                 cinInput.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -400,7 +402,7 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
                                                                                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                                                                                                 188,
                                                                                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                                .addComponent(prenomInput,
+                                                                                                                                .addComponent(EmailInput,
                                                                                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                                                                                                 188,
                                                                                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -450,7 +452,7 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
                                                                                                                                 .addGroup(jPanel1Layout
                                                                                                                                                 .createParallelGroup(
                                                                                                                                                                 javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                                                                                .addComponent(EmailInput,
+                                                                                                                                                .addComponent(prenomInput,
                                                                                                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                                                                                                                 188,
                                                                                                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -576,7 +578,7 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
                                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                                                 javax.swing.GroupLayout.DEFAULT_SIZE,
                                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                .addComponent(EmailInput,
+                                                                                .addComponent(prenomInput,
                                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                                                 javax.swing.GroupLayout.DEFAULT_SIZE,
                                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -598,7 +600,7 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
                                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                                                 javax.swing.GroupLayout.DEFAULT_SIZE,
                                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                .addComponent(prenomInput,
+                                                                                .addComponent(EmailInput,
                                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                                                 javax.swing.GroupLayout.DEFAULT_SIZE,
                                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -667,14 +669,14 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
                                 // IDinput.setPlaceholder("");
                                 nomInput.setEnabled(true);
                                 nomInput.setPlaceholder("Saisir le nom");
-                                prenomInput.setEnabled(true);
-                                prenomInput.setPlaceholder("Saisir le prénom ");
+                                EmailInput.setEnabled(true);
+                                EmailInput.setPlaceholder("Saisir le prénom ");
                                 telInput1.setEnabled(true);
                                 telInput1.setPlaceholder("Saisir le numéro de téléphone");
                                 cinInput.setEnabled(true);
                                 cinInput.setPlaceholder("Saisir le CIN");
-                                EmailInput.setEnabled(true);
-                                EmailInput.setPlaceholder("Saisir l'email");
+                                prenomInput.setEnabled(true);
+                                prenomInput.setPlaceholder("Saisir l'email");
                                 numInscInput.setEnabled(true);
                                 numInscInput.setPlaceholder("Saisir le numéro d'inscription");
                                 break;
@@ -682,14 +684,14 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
 
                                 nomInput.setEnabled(true);
                                 nomInput.setPlaceholder("Saisir le nom");
-                                prenomInput.setEnabled(true);
-                                prenomInput.setPlaceholder("Saisir le prénom ");
+                                EmailInput.setEnabled(true);
+                                EmailInput.setPlaceholder("Saisir le prénom ");
                                 telInput1.setEnabled(true);
                                 telInput1.setPlaceholder("Saisir le numéro de téléphone");
                                 cinInput.setEnabled(true);
                                 cinInput.setPlaceholder("Saisir le CIN");
-                                EmailInput.setEnabled(true);
-                                EmailInput.setPlaceholder("Saisir l'email");
+                                prenomInput.setEnabled(true);
+                                prenomInput.setPlaceholder("Saisir l'email");
                                 numInscInput.setEnabled(true);
                                 numInscInput.setPlaceholder("Saisir le numéro d'inscription");
                                 break;
@@ -697,14 +699,14 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
 
                                 nomInput.setEnabled(false);
                                 nomInput.setPlaceholder("");
-                                prenomInput.setEnabled(false);
-                                prenomInput.setPlaceholder("");
+                                EmailInput.setEnabled(false);
+                                EmailInput.setPlaceholder("");
                                 telInput1.setEnabled(false);
                                 telInput1.setPlaceholder("");
                                 cinInput.setEnabled(false);
                                 cinInput.setPlaceholder("");
-                                EmailInput.setEnabled(false);
-                                EmailInput.setPlaceholder("");
+                                prenomInput.setEnabled(false);
+                                prenomInput.setPlaceholder("");
                                 numInscInput.setEnabled(false);
                                 numInscInput.setPlaceholder("");
                                 break;
@@ -743,20 +745,23 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
         }// GEN-LAST:event_SearchInputActionPerformed
 
         private void searchTableMouseClicked(java.awt.event.MouseEvent evt) {
-                DefaultTableModel tblModel = (DefaultTableModel) searchTable.getModel();
-                String tblName = tblModel.getValueAt(searchTable.getSelectedRow(), 1).toString();
-                String tblPrenom = tblModel.getValueAt(searchTable.getSelectedRow(), 2).toString();
-                String tblTel = tblModel.getValueAt(searchTable.getSelectedRow(), 5).toString();
-                String tblCin = tblModel.getValueAt(searchTable.getSelectedRow(), 4).toString();
-                String tblEmail = tblModel.getValueAt(searchTable.getSelectedRow(), 3).toString();
-                String tblNumInsc = tblModel.getValueAt(searchTable.getSelectedRow(), 0).toString();
 
-                nomInput.setText(tblName);
-                prenomInput.setText(tblPrenom);
-                telInput1.setText(tblTel);
-                cinInput.setText(tblCin);
-                EmailInput.setText(tblEmail);
-                numInscInput.setText(tblNumInsc);
+                if (!TypeOpDrpdwn.getSelectedItem().equals("Ajout")) {
+                        DefaultTableModel tblModel = (DefaultTableModel) searchTable.getModel();
+                        String tblName = tblModel.getValueAt(searchTable.getSelectedRow(), 1).toString();
+                        String tblPrenom = tblModel.getValueAt(searchTable.getSelectedRow(), 2).toString();
+                        String tblTel = tblModel.getValueAt(searchTable.getSelectedRow(), 5).toString();
+                        String tblCin = tblModel.getValueAt(searchTable.getSelectedRow(), 4).toString();
+                        String tblEmail = tblModel.getValueAt(searchTable.getSelectedRow(), 3).toString();
+                        String tblNumInsc = tblModel.getValueAt(searchTable.getSelectedRow(), 0).toString();
+
+                        nomInput.setText(tblName);
+                        EmailInput.setText(tblEmail);
+                        telInput1.setText(tblTel);
+                        cinInput.setText(tblCin);
+                        prenomInput.setText(tblPrenom);
+                        numInscInput.setText(tblNumInsc);
+                }
 
         }
 
@@ -769,12 +774,13 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
                         case "Ajout":
                                 // get inputs
                                 String nom = nomInput.getText();
-                                String prenom = prenomInput.getText();
-                                String numInsc = numInscInput.getText();
                                 String email = EmailInput.getText();
+                                String numInsc = numInscInput.getText();
+                                String prenom = prenomInput.getText();
                                 String tel = telInput1.getText();
                                 String cin = cinInput.getText();
                                 Etudiant etudiant = new Etudiant();
+                                System.out.println(email);
                                 etudiant.setNom(nom);
                                 etudiant.setPrenom(prenom);
                                 etudiant.setNum_insc(Integer.parseInt(numInsc));
@@ -788,37 +794,65 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
                                         JOptionPane.showMessageDialog(null, "Veuillez remplir tous les champs",
                                                         "Erreur",
                                                         JOptionPane.ERROR_MESSAGE);
-                                } else {
-                                        // check if the student already exists
-                                        if (etudiant.findByNum_insc() >= 0) {
-                                                JOptionPane.showMessageDialog(null, "Cet étudiant existe déjà",
-                                                                "Erreur",
-                                                                JOptionPane.ERROR_MESSAGE);
-                                        }
-                                        // check if email already used
-                                        else if (etudiant.findByEmail() >= 0) {
-                                                JOptionPane.showMessageDialog(null, "Cet email existe déjà", "Erreur",
-                                                                JOptionPane.ERROR_MESSAGE);
-                                        } else if (etudiant.findByCIN() >= 0) {
-                                                JOptionPane.showMessageDialog(null, "Ce CIN existe déjà", "Erreur",
-                                                                JOptionPane.ERROR_MESSAGE);
-                                        }
+                                        break;
+                                }
+                                Pattern VALID_EMAIL_ADDRESS_REGEX1 = Pattern
+                                                .compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$",
+                                                                Pattern.CASE_INSENSITIVE);
+                                Matcher matcher1 = VALID_EMAIL_ADDRESS_REGEX1.matcher(email);
+                                if (!matcher1.find()) {
+                                        JOptionPane.showMessageDialog(null, "Email invalide", "Erreur",
+                                                        JOptionPane.ERROR_MESSAGE);
+                                        break;
+                                }
+                                Pattern VALID_TEL_REGEX1 = Pattern.compile("^[0-9]{8}$", Pattern.CASE_INSENSITIVE);
+                                Matcher matcher2 = VALID_TEL_REGEX1.matcher(tel);
+                                if (!matcher2.find()) {
+                                        JOptionPane.showMessageDialog(null, "Numéro de téléphone invalide", "Erreur",
+                                                        JOptionPane.ERROR_MESSAGE);
+                                        break;
+                                }
+                                Pattern VALID_CIN_REGEX1 = Pattern.compile("^[0-9]{8}$", Pattern.CASE_INSENSITIVE);
+                                if (!VALID_CIN_REGEX1.matcher(cin).find()) {
+                                        JOptionPane.showMessageDialog(null, "CIN invalide", "Erreur",
+                                                        JOptionPane.ERROR_MESSAGE);
+                                        break;
+                                }
 
-                                        else {
-                                                // create student
-                                                System.out.println(etudiant.create());
-                                                // clear inputs
-                                                nomInput.setText("");
-                                                prenomInput.setText("");
-                                                numInscInput.setText("");
-                                                EmailInput.setText("");
-                                                telInput1.setText("");
-                                                cinInput.setText("");
+                                // check if the student already exists
+                                if (etudiant.findByNum_insc() >= 0) {
+                                        JOptionPane.showMessageDialog(null, "Cet étudiant existe déjà",
+                                                        "Erreur",
+                                                        JOptionPane.ERROR_MESSAGE);
+                                        break;
+                                }
+                                // check if email already used
+                                if (etudiant.findByEmail() >= 0) {
+                                        JOptionPane.showMessageDialog(null, "Cet email existe déjà", "Erreur",
+                                                        JOptionPane.ERROR_MESSAGE);
+                                        break;
+                                }
+                                if (etudiant.findByCIN() >= 0) {
+                                        JOptionPane.showMessageDialog(null, "Ce CIN existe déjà", "Erreur",
+                                                        JOptionPane.ERROR_MESSAGE);
+                                        break;
+                                }
 
-                                                JOptionPane.showMessageDialog(null,
-                                                                "L'étudiant a été ajouté avec succès", "Succès",
-                                                                JOptionPane.INFORMATION_MESSAGE);
-                                        }
+                                else {
+                                        // create student
+                                        System.out.println(etudiant.create());
+                                        // clear inputs
+                                        nomInput.setText("");
+                                        EmailInput.setText("");
+                                        numInscInput.setText("");
+                                        prenomInput.setText("");
+                                        telInput1.setText("");
+                                        cinInput.setText("");
+
+                                        JOptionPane.showMessageDialog(null,
+                                                        "L'étudiant a été ajouté avec succès", "Succès",
+                                                        JOptionPane.INFORMATION_MESSAGE);
+                                        // this.fillTable();
                                 }
 
                                 break;
@@ -835,6 +869,8 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
                                 etudiant1.setPrenom(prenom1);
                                 etudiant1.setNum_insc(Integer.parseInt(numInsc1));
                                 etudiant1.setEmail(email1);
+                                etudiant1.setTel(tel1);
+                                etudiant1.setCIN(Integer.parseInt(cin1));
 
                                 // check if inputs are empty
                                 if (nom1.isEmpty() || prenom1.isEmpty() || numInsc1.isEmpty() || email1.isEmpty()) {
@@ -847,7 +883,9 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
                                 Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern
                                                 .compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$",
                                                                 Pattern.CASE_INSENSITIVE);
-                                if (!VALID_EMAIL_ADDRESS_REGEX.matcher(email1).find()) {
+                                Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(email1);
+                                if (!matcher.find()) {
+                                        System.out.println("Email invalide " + email1);
                                         JOptionPane.showMessageDialog(null, "Email invalide", "Erreur",
                                                         JOptionPane.ERROR_MESSAGE);
                                         break;
@@ -878,6 +916,9 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
                                         Etudiant etudiant2 = new Etudiant();
                                         etudiant2.setID(etudiant1.findByCIN());
                                         etudiant2.read();
+                                        System.out.println("hello " + etudiant1.toString());
+                                        System.out.println("hello " + etudiant1.findByCIN());
+                                        System.out.println("hello " + etudiant2.toString());
                                         if (etudiant2.getNum_insc() != etudiant1.getNum_insc()
                                                         && etudiant1.findByNum_insc() >= 0) {
                                                 JOptionPane.showMessageDialog(null,
@@ -885,7 +926,7 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
                                                                 "Erreur",
                                                                 JOptionPane.ERROR_MESSAGE);
 
-                                        } else if (etudiant2.getEmail() != etudiant1.getEmail()
+                                        } else if (!etudiant2.getEmail().equals(etudiant1.getEmail())
                                                         && etudiant1.findByEmail() >= 0) {
                                                 JOptionPane.showMessageDialog(null,
                                                                 "Cet email est déjà utilisé par un autre étudiant",
@@ -909,7 +950,7 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
                                                                 "Ce CIN est déjà utilisé par un autre étudiant",
                                                                 "Erreur",
                                                                 JOptionPane.ERROR_MESSAGE);
-                                        } else if (etudiant2.getEmail() != etudiant1.getEmail()
+                                        } else if (!etudiant2.getEmail().equals(etudiant1.getEmail())
                                                         && etudiant1.findByEmail() >= 0) {
                                                 JOptionPane.showMessageDialog(null,
                                                                 "Cet email est déjà utilisé par un autre étudiant",
@@ -949,11 +990,12 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
                                 }
                                 // clear the fields
                                 nomInput.setText("");
-                                prenomInput.setText("");
+                                EmailInput.setText("");
                                 numInscInput.setText("");
                                 cinInput.setText("");
-                                EmailInput.setText("");
+                                prenomInput.setText("");
                                 telInput1.setText("");
+                                // this.fillTable();
 
                                 break;
                         case "Suppression":
@@ -970,10 +1012,21 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
                                 e.delete();
                                 JOptionPane.showMessageDialog(null, "L'étudiant a été supprimé avec succès",
                                                 "Succès", JOptionPane.INFORMATION_MESSAGE);
+                                // clear the fields
+                                nomInput.setText("");
+                                EmailInput.setText("");
+                                numInscInput.setText("");
+                                cinInput.setText("");
+                                prenomInput.setText("");
+                                telInput1.setText("");
+                                // update table
+                                // this.fillTable();
+                                break;
 
                         default:
                                 break;
                 }
+                this.fillTable();
 
         }// GEN-LAST:event_validationBtnActionPerformed
 

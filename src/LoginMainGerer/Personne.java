@@ -163,9 +163,11 @@ public abstract class Personne implements CRUD {
         // find personne's CIN in the database if found return the id
         try {
             Connection connection = DBConnection.getConnection();
-            Statement statement = connection.createStatement();
-            String query = "SELECT idp FROM personne WHERE cin = '" + getCIN() + "'";
-            ResultSet resultSet = statement.executeQuery(query);
+            PreparedStatement statement = connection.prepareStatement("SELECT idp FROM personne WHERE CIN = ?");
+            System.out.println(this.toString());
+            statement.setInt(1, this.getCIN());
+            System.out.println(statement);
+            ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 return resultSet.getInt("idp");
             } else {

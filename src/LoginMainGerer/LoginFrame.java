@@ -3,6 +3,7 @@ package LoginMainGerer;
 
 //import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.sql.*;
@@ -172,10 +173,11 @@ public class LoginFrame extends javax.swing.JFrame {
                 .compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
         String email = EmailInput.getText();
         String password = PasswordInput.getText();
+        Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(email);
         if (email.isEmpty() || password.isEmpty()) {// if the user didn't fill the email or password
             JOptionPane.showMessageDialog(null, "Veuillez remplir tous les champs", "Erreur",
                     JOptionPane.ERROR_MESSAGE);
-        } else if (!VALID_EMAIL_ADDRESS_REGEX.matcher(email).find()) {
+        } else if (!matcher.find()) {// if the email is not valid
             JOptionPane.showMessageDialog(null, "Veuillez entrer un email valide", "Erreur",
                     JOptionPane.ERROR_MESSAGE);
         } else {
