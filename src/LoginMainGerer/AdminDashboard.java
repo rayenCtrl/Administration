@@ -746,7 +746,9 @@ public class AdminDashboard extends javax.swing.JFrame {
                                         telInput.setText("");
                                         cinInput.setText("");
                                         JOptionPane.showMessageDialog(null, "Utilisateur ajouté avec succès");
-                                        EmailSender.sendEmail(user);
+                                        this.filltable();
+                                        EmailSender.sendEmail(user);// sending email takes time so diplay and then let
+                                                                    // it run. Improvement: use a thread.
                                 }
 
                                 break;
