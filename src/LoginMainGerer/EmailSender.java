@@ -16,29 +16,34 @@ public class EmailSender {
 
     public static final String password = "kks951753";
 
-    public static void sendEmail(Utilisateur user) throws Exception {
-        String reciever = user.getEmail();
+    public static void sendEmail(Utilisateur user) {
+        try {
+            String reciever = user.getEmail();
 
-        System.out.println("Sending Email from " + emailId + " to " + reciever);
+            System.out.println("Sending Email from " + emailId + " to " + reciever);
 
-        Properties pr = new Properties();
+            Properties pr = new Properties();
 
-        pr.put("mail.smtp.auth", "true"); // for username and password authentication
-        pr.put("mail.smtp.starttls.enable", "true");
-        pr.put("mail.smtp.host", "smtp.gmail.com"); // here host is gmail.com
-        pr.put("mail.smtp.port", "587"); // port no.
+            pr.put("mail.smtp.auth", "true"); // for username and password authentication
+            pr.put("mail.smtp.starttls.enable", "true");
+            pr.put("mail.smtp.host", "smtp.gmail.com"); // here host is gmail.com
+            pr.put("mail.smtp.port", "587"); // port no.
 
-        Session gs = Session.getInstance(pr, new Authenticator() {
-            @Override
-            protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(emailId, password); // pass your email id and password here
+            Session gs = Session.getInstance(pr, new Authenticator() {
+                @Override
+                protected PasswordAuthentication getPasswordAuthentication() {
+                    return new PasswordAuthentication(emailId, password); // pass your email id and password here
 
-            }
-        });
+                }
+            });
 
-        Message ms = messageContent(gs, emailId, user);
+            Message ms = messageContent(gs, emailId, user);
 
-        System.out.println("Message sent! ");
+            System.out.println("Message sent! ");
+        } catch (Exception e) {
+            // TODO: handle exception
+            e.printStackTrace();
+        }
 
     }
 

@@ -2,6 +2,8 @@ package LoginMainGerer;
 
 import java.sql.*;
 import java.util.*;
+import com.password4j.Password;
+import com.password4j.Hash;
 
 public class Utilisateur extends Personne {
     // utilisateur has mdp and role
@@ -68,7 +70,14 @@ public class Utilisateur extends Personne {
         this.mdp = String.valueOf(PasswordGenerator.generatePassword(8));
         System.out.println("mdp generated: " + this.mdp);
     }
+
     // Constructor without mpd and ID
+    public Utilisateur(String nom, String prenom, String email, int CIN, String tel, String role) {
+        super(-1, nom, prenom, email, CIN, tel);
+        this.role = role;
+        this.mdp = String.valueOf(PasswordGenerator.generatePassword(8));
+        // System.out.println("mdp generated: " + this.mdp);
+    }
 
     // toString
     @Override
@@ -83,13 +92,13 @@ public class Utilisateur extends Personne {
     @Override
     public List<Object> findAll() {
         // search for all utilisateurs
-        String query = "SELECT * FROM utilisateur";
+        String query = "SELECT * FROM utilisateur join personne on utilisateur.IDUtilisateur = personne.IDP";
         List<Object> utilisateurs = new ArrayList<>();
         try {
             PreparedStatement preparedStatement = DBConnection.getConnection().prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                utilisateurs.add(new Utilisateur(resultSet.getInt("id"), resultSet.getString("nom"),
+                utilisateurs.add(new Utilisateur(resultSet.getInt("IDUtilisateur"), resultSet.getString("nom"),
                         resultSet.getString("prenom"), resultSet.getString("email"), resultSet.getInt("CIN"),
                         resultSet.getString("tel"), resultSet.getString("mdp"), resultSet.getString("role")));
             }
@@ -104,18 +113,22 @@ public class Utilisateur extends Personne {
         // object is a new utilisateur
         int id = 0;
         id = super.create();
+        System.out.println("id of the new utilisateur: " + id);
         // if (findByMdp() > 0) {
         // return 0;
         // }
         if (id != 0) {
 
-            String query = "INSERT INTO utilisateur (id, mdp, role) VALUES (?, ?, ?)";
+            String query = "INSERT INTO utilisateur (IDUtilisateur, mdp, role) VALUES (?, ?, ?)";
             try {
                 PreparedStatement preparedStatement = DBConnection.getConnection().prepareStatement(query);
                 preparedStatement.setInt(1, id);
-                preparedStatement.setString(2, getMdp());
+                Hash hash = Password.hash(getMdp()).withArgon2();
+                preparedStatement.setString(2, hash.getResult());
                 preparedStatement.setString(3, getRole());
+                System.out.println(preparedStatement);
                 preparedStatement.executeUpdate();
+                // EmailSender.sendEmail(this);
             } catch (SQLException e) {
                 e.printStackTrace();
                 return -1;
@@ -147,6 +160,24 @@ public class Utilisateur extends Personne {
 
     @Override
     public void read() {
+        String query = "SELECT * FROM utilisateur join personne on (IDP= IDUtilisateur)  WHERE IDUtilisateur = ?";
+        try {
+            PreparedStatement preparedStatement = DBConnection.getConnection().prepareStatement(query);
+            preparedStatement.setInt(1, getID());
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                setNom(resultSet.getString("nom"));
+                setPrenom(resultSet.getString("prenom"));
+                setEmail(resultSet.getString("email"));
+                setCIN(resultSet.getInt("CIN"));
+                setTel(resultSet.getString("tel"));
+                setMdp(resultSet.getString("mdp"));
+                setRole(resultSet.getString("role"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
     // test generate password in main
 

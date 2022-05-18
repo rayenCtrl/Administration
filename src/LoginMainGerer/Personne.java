@@ -91,8 +91,6 @@ public abstract class Personne implements CRUD {
         if (findByEmail() >= 0) {
             return -2;
         }
-        if (findByTel() >= 0)
-            return -3;
 
         // else add the personne to the database and return its id from database.
         String query = "INSERT INTO personne (nom, prenom, email, CIN, tel) VALUES (?, ?, ?, ?, ?)";

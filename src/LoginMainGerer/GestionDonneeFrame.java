@@ -173,72 +173,132 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
                                 SearchInputActionPerformed(evt);
                         }
                 });
-
-                searchTable.setModel(new javax.swing.table.DefaultTableModel(
-                                new Object[][] {
-                                                { null, null, null, null, null, null },
-                                                { null, null, null, null, null, null },
-                                                { null, null, null, null, null, null },
-                                                { null, null, null, null, null, null },
-                                                { null, null, null, null, null, null },
-                                                { null, null, null, null, null, null },
-                                                { null, null, null, null, null, null },
-                                                { null, null, null, null, null, null },
-                                                { null, null, null, null, null, null },
-                                                { null, null, null, null, null, null },
-                                                { null, null, null, null, null, null },
-                                                { null, null, null, null, null, null },
-                                                { null, null, null, null, null, null },
-                                                { null, null, null, null, null, null },
-                                                { null, null, null, null, null, null },
-                                                { null, null, null, null, null, null },
-                                                { null, null, null, null, null, null },
-                                                { null, null, null, null, null, null },
-                                                { null, null, null, null, null, null },
-                                                { null, null, null, null, null, null },
-                                                { null, null, null, null, null, null },
-                                                { null, null, null, null, null, null },
-                                                { null, null, null, null, null, null },
-                                                { null, null, null, null, null, null },
-                                                { null, null, null, null, null, null },
-                                                { null, null, null, null, null, null },
-                                                { null, null, null, null, null, null },
-                                                { null, null, null, null, null, null },
-                                                { null, null, null, null, null, null },
-                                                { null, null, null, null, null, null },
-                                                { null, null, null, null, null, null },
-                                                { null, null, null, null, null, null },
-                                                { null, null, null, null, null, null },
-                                                { null, null, null, null, null, null },
-                                                { null, null, null, null, null, null },
-                                                { null, null, null, null, null, null },
-                                                { null, null, null, null, null, null },
-                                                { null, null, null, null, null, null },
-                                                { null, null, null, null, null, null },
-                                                { null, null, null, null, null, null },
-                                                { null, null, null, null, null, null },
-                                                { null, null, null, null, null, null },
-                                                { null, null, null, null, null, null },
-                                                { null, null, null, null, null, null },
-                                                { null, null, null, null, null, null },
-                                                { null, null, null, null, null, null },
-                                                { null, null, null, null, null, null },
-                                                { null, null, null, null, null, null },
-                                                { null, null, null, null, null, null },
-                                                { null, null, null, null, null, null }
-                                },
+                DefaultTableModel modell = new DefaultTableModel(new Object[][] {
+                                { null, null, null, null, null, null },
+                                { null, null, null, null, null, null },
+                                { null, null, null, null, null, null },
+                                { null, null, null, null, null, null },
+                                { null, null, null, null, null, null },
+                                { null, null, null, null, null, null },
+                                { null, null, null, null, null, null },
+                                { null, null, null, null, null, null },
+                                { null, null, null, null, null, null },
+                                { null, null, null, null, null, null },
+                                { null, null, null, null, null, null },
+                                { null, null, null, null, null, null },
+                                { null, null, null, null, null, null },
+                                { null, null, null, null, null, null },
+                                { null, null, null, null, null, null },
+                                { null, null, null, null, null, null },
+                                { null, null, null, null, null, null },
+                                { null, null, null, null, null, null },
+                                { null, null, null, null, null, null },
+                                { null, null, null, null, null, null },
+                                { null, null, null, null, null, null },
+                                { null, null, null, null, null, null },
+                                { null, null, null, null, null, null },
+                                { null, null, null, null, null, null },
+                                { null, null, null, null, null, null },
+                                { null, null, null, null, null, null },
+                                { null, null, null, null, null, null },
+                                { null, null, null, null, null, null },
+                                { null, null, null, null, null, null },
+                                { null, null, null, null, null, null },
+                                { null, null, null, null, null, null },
+                                { null, null, null, null, null, null },
+                                { null, null, null, null, null, null },
+                                { null, null, null, null, null, null },
+                                { null, null, null, null, null, null },
+                                { null, null, null, null, null, null },
+                                { null, null, null, null, null, null },
+                                { null, null, null, null, null, null },
+                                { null, null, null, null, null, null },
+                                { null, null, null, null, null, null },
+                                { null, null, null, null, null, null },
+                                { null, null, null, null, null, null },
+                                { null, null, null, null, null, null },
+                                { null, null, null, null, null, null },
+                                { null, null, null, null, null, null },
+                                { null, null, null, null, null, null },
+                                { null, null, null, null, null, null },
+                                { null, null, null, null, null, null },
+                                { null, null, null, null, null, null },
+                                { null, null, null, null, null, null }
+                },
                                 new String[] {
                                                 "Num Insc", "Nom", "Prénom", "Email", "CIN", "Tél"
                                 }) {
-                        Class[] types = new Class[] {
-                                        java.lang.Integer.class, java.lang.String.class, java.lang.String.class,
-                                        java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class
-                        };
-
-                        public Class getColumnClass(int columnIndex) {
-                                return types[columnIndex];
+                        @Override
+                        public boolean isCellEditable(int row, int column) {
+                                return false;
                         }
-                });
+                };
+                searchTable.setModel(modell);
+                // searchTable.setModel(new javax.swing.table.DefaultTableModel(
+                // new Object[][] {
+                // { null, null, null, null, null, null },
+                // { null, null, null, null, null, null },
+                // { null, null, null, null, null, null },
+                // { null, null, null, null, null, null },
+                // { null, null, null, null, null, null },
+                // { null, null, null, null, null, null },
+                // { null, null, null, null, null, null },
+                // { null, null, null, null, null, null },
+                // { null, null, null, null, null, null },
+                // { null, null, null, null, null, null },
+                // { null, null, null, null, null, null },
+                // { null, null, null, null, null, null },
+                // { null, null, null, null, null, null },
+                // { null, null, null, null, null, null },
+                // { null, null, null, null, null, null },
+                // { null, null, null, null, null, null },
+                // { null, null, null, null, null, null },
+                // { null, null, null, null, null, null },
+                // { null, null, null, null, null, null },
+                // { null, null, null, null, null, null },
+                // { null, null, null, null, null, null },
+                // { null, null, null, null, null, null },
+                // { null, null, null, null, null, null },
+                // { null, null, null, null, null, null },
+                // { null, null, null, null, null, null },
+                // { null, null, null, null, null, null },
+                // { null, null, null, null, null, null },
+                // { null, null, null, null, null, null },
+                // { null, null, null, null, null, null },
+                // { null, null, null, null, null, null },
+                // { null, null, null, null, null, null },
+                // { null, null, null, null, null, null },
+                // { null, null, null, null, null, null },
+                // { null, null, null, null, null, null },
+                // { null, null, null, null, null, null },
+                // { null, null, null, null, null, null },
+                // { null, null, null, null, null, null },
+                // { null, null, null, null, null, null },
+                // { null, null, null, null, null, null },
+                // { null, null, null, null, null, null },
+                // { null, null, null, null, null, null },
+                // { null, null, null, null, null, null },
+                // { null, null, null, null, null, null },
+                // { null, null, null, null, null, null },
+                // { null, null, null, null, null, null },
+                // { null, null, null, null, null, null },
+                // { null, null, null, null, null, null },
+                // { null, null, null, null, null, null },
+                // { null, null, null, null, null, null },
+                // { null, null, null, null, null, null }
+                // },
+                // new String[] {
+                // "Num Insc", "Nom", "Prénom", "Email", "CIN", "Tél"
+                // }) {
+                // Class[] types = new Class[] {
+                // java.lang.Integer.class, java.lang.String.class, java.lang.String.class,
+                // java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class
+                // };
+
+                // public Class getColumnClass(int columnIndex) {
+                // return types[columnIndex];
+                // }
+                // });
                 searchTable.addMouseListener(new java.awt.event.MouseAdapter() {
                         public void mouseClicked(java.awt.event.MouseEvent evt) {
                                 searchTableMouseClicked(evt);
@@ -636,6 +696,7 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
                                                                 javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
 
                 pack();
+                this.fillTable();
         }// </editor-fold>//GEN-END:initComponents
 
         private void telInput1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_telInput1ActionPerformed
