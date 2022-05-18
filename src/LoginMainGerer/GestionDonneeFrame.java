@@ -842,12 +842,6 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
                                 String cin = cinInput.getText();
                                 Etudiant etudiant = new Etudiant();
                                 System.out.println(email);
-                                etudiant.setNom(nom);
-                                etudiant.setPrenom(prenom);
-                                etudiant.setNum_insc(Integer.parseInt(numInsc));
-                                etudiant.setEmail(email);
-                                etudiant.setTel(tel);
-                                etudiant.setCIN(Integer.parseInt(cin));
 
                                 // check if inputs are empty
                                 if (nom.isEmpty() || prenom.isEmpty() || numInsc.isEmpty() || email.isEmpty()
@@ -879,6 +873,12 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
                                                         JOptionPane.ERROR_MESSAGE);
                                         break;
                                 }
+                                etudiant.setNom(nom);
+                                etudiant.setPrenom(prenom);
+                                etudiant.setNum_insc(Integer.parseInt(numInsc));
+                                etudiant.setEmail(email);
+                                etudiant.setTel(tel);
+                                etudiant.setCIN(Integer.parseInt(cin));
 
                                 // check if the student already exists
                                 if (etudiant.findByNum_insc() >= 0) {
@@ -926,12 +926,6 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
                                 String tel1 = telInput1.getText();
                                 String cin1 = cinInput.getText();
                                 Etudiant etudiant1 = new Etudiant();
-                                etudiant1.setNom(nom1);
-                                etudiant1.setPrenom(prenom1);
-                                etudiant1.setNum_insc(Integer.parseInt(numInsc1));
-                                etudiant1.setEmail(email1);
-                                etudiant1.setTel(tel1);
-                                etudiant1.setCIN(Integer.parseInt(cin1));
 
                                 // check if inputs are empty
                                 if (nom1.isEmpty() || prenom1.isEmpty() || numInsc1.isEmpty() || email1.isEmpty()) {
@@ -965,6 +959,12 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
                                                         JOptionPane.ERROR_MESSAGE);
                                         break;
                                 }
+                                etudiant1.setNom(nom1);
+                                etudiant1.setPrenom(prenom1);
+                                etudiant1.setNum_insc(Integer.parseInt(numInsc1));
+                                etudiant1.setEmail(email1);
+                                etudiant1.setTel(tel1);
+                                etudiant1.setCIN(Integer.parseInt(cin1));
                                 // check if the student already exists
                                 if (etudiant1.findByNum_insc() < 0 && etudiant1.findByEmail() < 0
                                                 && etudiant1.findByCIN() < 0) {
