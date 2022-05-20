@@ -55,6 +55,7 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
                 cinInput = new PlaceholderTextField("");
 
                 setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+                setTitle("Gestionaire des données");
 
                 jPanel1.setBackground(new java.awt.Color(255, 255, 255));
                 jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -1047,6 +1048,12 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
                                                 JOptionPane.showMessageDialog(null,
                                                                 "L'étudiant a été modifié avec succès", "Succès",
                                                                 JOptionPane.INFORMATION_MESSAGE);
+                                                nomInput.setText("");
+                                                EmailInput.setText("");
+                                                numInscInput.setText("");
+                                                cinInput.setText("");
+                                                prenomInput.setText("");
+                                                telInput1.setText("");
                                         }
                                 }
                                 // clear the fields

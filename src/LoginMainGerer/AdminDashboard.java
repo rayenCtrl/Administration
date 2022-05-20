@@ -51,6 +51,8 @@ public class AdminDashboard extends javax.swing.JFrame {
                 jLabel18 = new javax.swing.JLabel();
                 jLabel5 = new javax.swing.JLabel();
 
+                setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+                setTitle("Administration");
                 javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
                 jPanel3.setLayout(jPanel3Layout);
                 jPanel3Layout.setHorizontalGroup(
