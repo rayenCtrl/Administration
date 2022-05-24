@@ -68,7 +68,7 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
 
                 OperationDrpdwn.setForeground(new java.awt.Color(51, 51, 51));
                 OperationDrpdwn.setModel(new javax.swing.DefaultComboBoxModel<>(
-                                new String[] { "Etudiant", "Enseignant", "Scholarité" }));
+                                new String[] { "Etudiant", "Enseignants", "Matières", "Notes" }));
                 OperationDrpdwn.setToolTipText("");
                 OperationDrpdwn.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -324,6 +324,12 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
                 jLabel3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
                 jLabel3.setForeground(new java.awt.Color(255, 255, 255));
                 jLabel3.setText("Acceuil");
+                jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+                        public void mouseClicked(java.awt.event.MouseEvent evt) {
+                                jLabel3MouseClicked(evt);
+                        }
+                });
+                // jLabel3.addActionListener()
 
                 jLabel4.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
                 jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -777,6 +783,18 @@ public class GestionDonneeFrame extends javax.swing.JFrame {
                                 break;
                 }
         }// GEN-LAST:event_TypeOpDrpdwnActionPerformed
+
+        private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jLabel3MouseClicked
+                // TODO add your handling code here:
+                this.dispose();
+                if (DBConnection.getUserr().getRole().equals("Administrateur")) {
+                        new AdminHomeFrame().setVisible(true);
+                } else if (DBConnection.getUserr().getRole().equals("Chef Département")) {
+                        new ChefHomeFrame().setVisible(true);
+                } else {
+                        new StaffMainFrame().setVisible(true);
+                }
+        }// GEN-LAST:event_jLabel3MouseClicked
 
         private void IDinputActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_IDinputActionPerformed
                 // TODO add your handling code here:

@@ -537,6 +537,11 @@ public class AdminDashboard extends javax.swing.JFrame {
                 jLabel3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
                 jLabel3.setForeground(new java.awt.Color(255, 255, 255));
                 jLabel3.setText("Acceuil");
+                jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+                        public void mouseClicked(java.awt.event.MouseEvent evt) {
+                                jLabel3MouseClicked(evt);
+                        }
+                });
 
                 jLabel4.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
                 jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -553,6 +558,11 @@ public class AdminDashboard extends javax.swing.JFrame {
                 jLabel18.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
                 jLabel18.setForeground(new java.awt.Color(255, 255, 255));
                 jLabel18.setText("Gestionnaire de Données");
+                jLabel18.addMouseListener(new java.awt.event.MouseAdapter() {
+                        public void mouseClicked(java.awt.event.MouseEvent evt) {
+                                jLabel18MouseClicked(evt);
+                        }
+                });
 
                 jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/logohome.png"))); // NOI18N
 
@@ -630,6 +640,24 @@ public class AdminDashboard extends javax.swing.JFrame {
                 pack();
                 this.filltable();
         }// </editor-fold>//GEN-END:initComponents
+
+        private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jLabel18MouseClicked
+                // TODO add your handling code here:
+                this.dispose();
+                new GestionDonneeFrame().setVisible(true);
+        }// GEN-LAST:event_jLabel18MouseClicked
+
+        private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jLabel3MouseClicked
+                // TODO add your handling code here:
+                this.dispose();
+                if (DBConnection.getUserr().getRole().equals("Administrateur")) {
+                        new AdminHomeFrame().setVisible(true);
+                } else if (DBConnection.getUserr().getRole().equals("Chef Département")) {
+                        new ChefHomeFrame().setVisible(true);
+                } else {
+                        new StaffMainFrame().setVisible(true);
+                }
+        }// GEN-LAST:event_jLabel3MouseClicked
 
         private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jComboBox2ActionPerformed
                 // TODO add your handling code here:

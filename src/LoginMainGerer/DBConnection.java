@@ -4,6 +4,7 @@ import java.sql.*;
 
 public class DBConnection {
     private static Connection connection = null;
+    private static Utilisateur userr = null;
     private static final String db = "mydb";
     private static final String user = "root";
     private static final String password = "";
@@ -40,6 +41,14 @@ public class DBConnection {
     }
 
     public DBConnection() {
+    }
+
+    public static Utilisateur getUserr() {
+        return userr;
+    }
+
+    public static void setUserr(Utilisateur userr) {
+        DBConnection.userr = userr;
     }
 
     // main method

@@ -196,6 +196,10 @@ public class LoginFrame extends javax.swing.JFrame {
                                                                                       // the hash in the database
                         JOptionPane.showMessageDialog(null, "Bienvenue " + rs.getString("nom") + " "
                                 + rs.getString("prenom"), "Bienvenue", JOptionPane.INFORMATION_MESSAGE);
+                        Utilisateur userr = new Utilisateur(rs.getString("nom"), rs.getString("prenom"),
+                                rs.getString("email"), rs.getString("mdp"));
+                        userr.setRole(rs.getString("role"));
+                        DBConnection.setUserr(userr);
                         this.dispose();
                         // new Home(rs.getString("nom"), rs.getString("prenom"), rs.getString("email"),
                         // rs.getString("password")).setVisible(true);
